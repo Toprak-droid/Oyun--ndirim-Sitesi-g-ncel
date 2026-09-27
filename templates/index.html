@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="google-site-verification"
+          content="VZ_toFli9T3xzyAZbnFtoKjH0sSkyejDfa5QYJTAmpE">
+
+    <title>Oyun İndirimleri | Steam ve Epic Games</title>
+
+    <meta name="description"
+          content="Steam ve Epic Games üzerindeki güncel oyun indirimlerini keşfet.">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          <meta name="google-site-verification" content="googlefd59a7711b881762" />
+</head>
+
+<body>
+    <header>
+        <h1>🎮 Oyun İndirimleri</h1>
+        <p>Steam ve Epic Games indirimlerini keşfet</p>
+    </header>
+
+    <main>
+        <section class="istek-bolumu" aria-labelledby="istek-basligi">
+            <div>
+                <p class="bolum-etiketi">Aradığın oyun yok mu?</p>
+                <h2 id="istek-basligi">Bize oyun öner</h2>
+                <p class="istek-aciklama">Takip etmemizi istediğin oyunun adını gönder.</p>
+            </div>
+
+            <form action="{{ url_for('oyun_istegi') }}" method="post" class="istek-formu">
+                <label for="oyun-adi">Oyun adı</label>
+                <div class="form-satiri">
+                    <input
+                        type="text"
+                        id="oyun-adi"
+                        name="oyun_adi"
+                        placeholder="Örnek: Hades II"
+                        maxlength="120"
+                        required
+                    >
+
+                    <label class="sr-only" for="magaza">Mağaza</label>
+                    <select id="magaza" name="magaza">
+                        <option value="Fark etmez">Mağaza fark etmez</option>
+                        <option value="Steam">Steam</option>
+                        <option value="Epic Games">Epic Games</option>
+                    </select>
+
+                    <button type="submit">İstek gönder</button>
+                </div>
+            </form>
+        </section>
+
+        <div class="arama-kutusu">
+            <input
+                type="text"
+                id="arama"
+                placeholder="Oyun ara... Örnek: Red Dead"
+                autocomplete="off"
+            >
+
+            <div id="oneriler"></div>
+        </div>
+
+        <p id="oyun-sayisi">
+            {{ oyunlar|length }} indirimli oyun bulundu
+        </p>
+
+        <section id="oyunlar">
+            {% for oyun in oyunlar %}
+            <div class="oyun-karti">
+                {% if oyun.resim %}
+                <img
+                    src="{{ oyun.resim }}"
+                    alt="{{ oyun.ad }}"
+                    loading="lazy"
+                    onerror="this.style.display='none'"
+                >
+                {% endif %}
+
+                <h2>{{ oyun.ad }}</h2>
+
+                <p class="magaza">
+                    Mağaza: {{ oyun.magaza }}
+                </p>
+
+                <p class="eski-fiyat">
+                    <s>{{ oyun.eski_fiyat }}</s>
+                </p>
+
+                <p class="fiyat">
+                    {{ oyun.yeni_fiyat }}
+                </p>
+
+                <p class="indirim">
+                    {{ oyun.indirim }}
+                </p>
+
+                <a
+                    href="{{ oyun.link }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Mağazada görüntüle
+                </a>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+<meta name="google-site-verification" content="googlefd59a7711b881762" />

@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.istek-bolumu {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding: 24px;
+    background: #172554;
+    border: 1px solid #1e40af;
+    border-radius: 12px;
+}
+
+.istek-bolumu h2 {
+    margin: 4px 0 8px;
+    font-size: 24px;
+}
+
+.bolum-etiketi {
+    margin: 0;
+    color: #93c5fd;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.istek-aciklama {
+    margin: 0;
+    color: #bfdbfe;
+}
+
+.istek-formu {
+    min-width: min(100%, 560px);
+}
+
+.istek-formu > label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-satiri {
+    display: flex;
+    gap: 8px;
+}
+
+.form-satiri input,
+.form-satiri select,
+.form-satiri button {
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.form-satiri input {
+    min-width: 0;
+    flex: 1;
+}
+
+.form-satiri select {
+    color: #111827;
+    background: white;
+}
+
+.form-satiri button {
+    color: white;
+    background: #2563eb;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.form-satiri button:hover {
+    background: #1d4ed8;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.arama-kutusu {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+#arama {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#oneriler {
+    position: absolute;
+    width: 100%;
+    background: white;
+    color: #111827;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.oneri {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.oneri:hover {
+    background: #e5e7eb;
+}
+
+#oyun-sayisi {
+    color: #cbd5e1;
+}
+
+#oyunlar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.oyun-karti {
+    overflow: hidden;
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.oyun-karti img {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: #374151;
+}
+
+
+.oyun-karti h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.magaza {
+    color: #93c5fd;
+    font-weight: bold;
+}
+
+.eski-fiyat {
+    color: #9ca3af;
+}
+
+.fiyat {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.indirim {
+    color: #4ade80;
+    font-weight: bold;
+}
+
+.oyun-karti a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 14px;
+    color: white;
+    background: #2563eb;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.oyun-karti a:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+    .istek-bolumu {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .istek-formu {
+        min-width: 0;
+    }
+
+    .form-satiri {
+        flex-wrap: wrap;
+    }
+
+    .form-satiri input {
+        flex-basis: 100%;
+    }
+
+    .form-satiri select,
+    .form-satiri button {
+        flex: 1;
+    }
+}
